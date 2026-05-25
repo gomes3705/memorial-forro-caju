@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memorial Forró Caju — Capital do País do Forró</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Boogaloo&family=Kalam:wght@400;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+<!-- FUNDO FOGO -->
+<div class="fire-bg">
+  <video id="fire-video" autoplay muted loop playsinline>
+   <source src="{{ url_for('static', filename='assets/fogueira.mp4') }}" type="video/mp4" /> -->
+  </video>
+  <div class="fire-overlay"></div>
+</div>
+<canvas id="stars-canvas"></canvas>
+<canvas id="sparks-canvas"></canvas>
+
+<!-- ══ SPLASH ══════════════════════════════════════════════════ -->
+<div id="splash-screen">
+  <div class="bandeirola top" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="splash-content">
+    <div class="splash-badge">✦ Aracaju · Sergipe · Capital do País do Forró ✦</div>
+    <h1 class="splash-title">
+      <span class="title-line-1">Memorial</span>
+      <span class="title-line-2">Forró Caju</span>
+    </h1>
+    <p class="splash-sub">São João 2026</p>
+    <button id="enter-btn" class="enter-button">
+      <span class="btn-icon">🪗</span>
+      <span class="btn-text">Clique para entrar no Forró Caju</span>
+      <span class="btn-icon">🔥</span>
+    </button>
+    <p class="splash-hint">↓ ligue o volume ↓</p>
+  </div>
+  <div class="bandeirola bottom" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ══ CONTEÚDO PRINCIPAL ══════════════════════════════════════ -->
+<div id="main-content" class="hidden">
+
+  <audio id="bg-audio" loop>
+   <source src="{{ url_for('static', filename='assets/sanfona.mp3') }}" type="audio/mpeg" /> 
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div id="audio-control" class="audio-control">
+    <button id="mute-btn" title="Mutar/Desmutar">🪗</button>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.4" />
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner container">
+      <div class="nav-logo">🪗 Forró Caju</div>
+      <div class="nav-links">
+        <a href="#intro">Início</a>
+        <a href="#estrelas">Artistas</a>
+        <a href="#festas">Festas</a>
+        <a href="#footer">Sobre</a>
+      </div>
+      <div class="nav-hamburger" id="hamburger">☰</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="site-header" id="intro">
+    <div class="header-bandeirola">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="header-inner container">
+      <div class="header-eyebrow">✦ ARACAJU · SERGIPE · SÃO JOÃO 2026 ✦</div>
+      <h1 class="site-title">
+        <span class="title-memorial">Memorial</span>
+        <span class="title-forro">Forró Caju</span>
+      </h1>
+      <p class="site-subtitle">Capital do País do Forró · Sergipe · Brasil</p>
+      <div class="header-cta-row">
+        <a href="#estrelas" class="cta-btn primary">🌟 Ver Artistas</a>
+        <a href="#festas" class="cta-btn secondary">🔥 Ver Festas</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro-section">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h2 class="section-title">Onde a Tradição<br/>Encontra a Inovação</h2>
+          <p>Em Aracaju, o forró não é apenas música — é pulso, memória e identidade. Este memorial digital foi criado para celebrar os gigantes que carregam a bandeira do forró sergipano e preservar essa cultura viva para as próximas gerações.</p>
+          <p>Sergipe é o <strong>País do Forró</strong>. Com um ciclo junino de 60 dias de festa, mais de 300 atrações e milhares de fãs vindos do Brasil inteiro, Aracaju coloca o Nordeste no centro do mundo.</p>
+          <div class="intro-tags">
+            <span>#ForróCaju</span><span>#Sergipe</span><span>#SãoJoão2026</span>
+            <span>#CapitalDoForró</span><span>#Aracaju</span><span>#NordesteBrasil</span>
+          </div>
+        </div>
+        <div class="intro-stats">
+          <div class="stat-card"><span class="stat-num">60</span><span class="stat-label">Dias de Festa</span></div>
+          <div class="stat-card"><span class="stat-num">+300</span><span class="stat-label">Atrações</span></div>
+          <div class="stat-card"><span class="stat-num">7</span><span class="stat-label">Artistas no Memorial</span></div>
+          <div class="stat-card"><span class="stat-num">∞</span><span class="stat-label">Memórias</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ARTISTAS ═══════════════════════════════════════════════ -->
+  <section class="artists-section" id="estrelas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">ESTRELAS SERGIPANAS</span>
+        <h2 class="section-title glow">Os Gigantes do Forró</h2>
+        <p class="section-desc">Conheça os artistas que levam Sergipe para o mundo</p>
+      </div>
+
+      <!-- ── MESTRINHO ── -->
+      <div class="artist-block" style="--artist-color:#f59e0b">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/mestrinho.jpg') }}" alt="Mestrinho" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🪗 Sanfoneiro Virtuoso</div>
+            <h2 class="artist-name">Mestrinho</h2>
+            <p class="artist-origin">📍 Itabaiana, Sergipe · Nascido em 1988</p>
+            <div class="artist-bio">
+              <p>Neto e filho de sanfoneiros, <strong>Mestrinho</strong> tocou pela primeira vez aos 6 anos e aos 20 integrou a banda de <strong>Dominguinhos</strong>, o mestre do qual é considerado o maior herdeiro. Realizou turnês de jazz na Europa, Israel e Uruguai dividindo palco com Gilberto Gil, Elba Ramalho, Ivete Sangalo e Hermeto Pascoal.</p>
+              <p>Em 2019 recebeu sua primeira indicação ao <strong>Grammy Latino</strong>. Em 2024 venceu o Grammy de Melhor Álbum de Raízes com Mariana Aydar. Em 2025 foi indicado novamente com <em>Dominguinho</em> ao lado de João Gomes e Jota.pê. "O Mundo É Nós" foi trilha da novela <em>Mar do Sertão</em> na Globo.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Mestrinho" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Mestrinho+sanfoneiro" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Mestrinho%20Ansiosos%20Pra%20Viver" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Ansiosos Pra Viver</a>
+                <a href="https://open.spotify.com/search/Mestrinho%20Saudade%20chama" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Saudade Chama por Você</a>
+                <a href="https://open.spotify.com/search/Mestrinho%20Superar%20Gilberto%20Gil" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Superar (c/ Gilberto Gil)</a>
+                <a href="https://open.spotify.com/search/Mestrinho%20O%20mundo%20e%20nos" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> O Mundo É Nós</a>
+                <a href="https://www.youtube.com/results?search_query=Mestrinho+Dominguinho+João+Gomes" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Dominguinho (c/ João Gomes)</a>
+                <a href="https://www.youtube.com/results?search_query=Mestrinho+Mais+um+dia+sem+te+ver" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Mais Um Dia Sem Te Ver</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CALCINHA PRETA ── -->
+      <div class="artist-block reverse" style="--artist-color:#ec4899">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/calcinha-preta.jpg') }}" alt="Calcinha Preta" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🎤 Forró Eletrônico</div>
+            <h2 class="artist-name">Calcinha Preta</h2>
+            <p class="artist-origin">📍 Aracaju, Sergipe · Fundada em 1995</p>
+            <div class="artist-bio">
+              <p>Fundada em 1995, a <strong>Calcinha Preta</strong> modernizou o forró trocando o saxofone pelas guitarras. Com <strong>26 CDs e 7 milhões de cópias vendidas</strong>, fez turnês nos EUA, Canadá, Europa e África. Em 2007, Datafolha a apontou como o <strong>3º artista mais popular do Brasil</strong>.</p>
+              <p>"Você Não Vale Nada" foi trilha de <em>Caminho das Índias</em> na Globo (2009). Em 2023 ultrapassou <strong>1 bilhão de visualizações</strong> no YouTube. A eterna <strong>Paulinha Abelha</strong>, falecida em 2022, é símbolo do forró brasileiro para sempre.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Calcinha%20Preta" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Calcinha+Preta+oficial" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Calcinha%20Preta%20Voce%20Nao%20Vale%20Nada" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Você Não Vale Nada</a>
+                <a href="https://open.spotify.com/search/Calcinha%20Preta%20Hoje%20a%20Noite" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Hoje à Noite</a>
+                <a href="https://open.spotify.com/search/Calcinha%20Preta%20Louca%20Por%20Ti" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Louca Por Ti</a>
+                <a href="https://open.spotify.com/search/Calcinha%20Preta%20Onde%20o%20Sonho%20Mora" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Onde o Sonho Mora</a>
+                <a href="https://www.youtube.com/results?search_query=Calcinha+Preta+Agora+Estou+Sofrendo" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Agora Estou Sofrendo</a>
+                <a href="https://www.youtube.com/results?search_query=Calcinha+Preta+Paulinha+homenagem" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Paulinha (homenagem eterna)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NATANZINHO LIMA ── -->
+      <div class="artist-block" style="--artist-color:#22c55e">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/natanzinho.webp') }}" alt="Natanzinho Lima" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🎸 Piseiro · Arrocha · Forró</div>
+            <h2 class="artist-name">Natanzinho Lima</h2>
+            <p class="artist-origin">📍 Itabaiana, Sergipe · Nascido em 2002</p>
+            <div class="artist-bio">
+              <p>De garçom e vendedor de castanhas nas ruas de Itabaiana a um dos maiores nomes do piseiro nacional. Um vídeo viral transformou sua vida e o levou diretamente ao coração do Brasil. Até <strong>Will Smith</strong> viralizou dançando um de seus hits durante visita ao país.</p>
+              <p><strong>"Uma e Quinze da Manhã"</strong> alcançou o Top 1 do Brasil nas plataformas digitais. Em 2025, gravou o primeiro DVD no <strong>Mineirão</strong> — uma história de superação que representa o forró sergipano da nova geração.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Natanzinho%20Lima" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Natanzinho+Lima+oficial" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Natanzinho%20Lima%20Uma%20e%20Quinze%20da%20Manha" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Uma e Quinze da Manhã</a>
+                <a href="https://open.spotify.com/search/Natanzinho%20Lima%20Pilantra%20e%20Meio" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Pilantra e Meio</a>
+                <a href="https://open.spotify.com/search/Natanzinho%20Lima%20Mentira%20Estampada" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Mentira Estampada</a>
+                <a href="https://open.spotify.com/search/Natanzinho%20Lima%20Bipolar" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Bipolar</a>
+                <a href="https://www.youtube.com/results?search_query=Natanzinho+Lima+Me+Apaixonei+Nessa+Morena" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Me Apaixonei Nessa Morena</a>
+                <a href="https://www.youtube.com/results?search_query=Natanzinho+Lima+Só+Mais+Uma+Vez+Heitor+Costa" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Só Mais Uma Vez</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── HEITOR COSTA ── -->
+      <div class="artist-block reverse" style="--artist-color:#818cf8">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/heitor-costa.jpg') }}" alt="Heitor Costa" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🎶 Arrocha · Forró</div>
+            <h2 class="artist-name">Heitor Costa</h2>
+            <p class="artist-origin">📍 Rio Branco, AC → Aracaju, SE · Nascido em 2002</p>
+            <div class="artist-bio">
+              <p>Acriano de origem e <strong>sergipano de coração</strong>, mudou-se para Aracaju aos 10 anos seguindo o sonho de cantar. Viralizou em 2021 com "Pássaro Noturno". Em 2022, "Acabei de Terminar" dominou as rádios sergipanas. Suas músicas integraram a trilha do <strong>BBB 24</strong>, projetando-o no cenário nacional.</p>
+              <p>Em 2024 foi o <strong>artista mais ouvido em Sergipe no Spotify</strong> — superando Taylor Swift. Mais de <strong>1 bilhão de plays</strong> no Sua Música. Reuniu mais de 50 mil pessoas em um único show no Arraiá do Povo. Sua dança virou marca registrada.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Heitor%20Costa%20arrocha" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Heitor+Costa+cantor+oficial" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Heitor%20Costa%20Passaro%20Noturno" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Pássaro Noturno</a>
+                <a href="https://open.spotify.com/search/Heitor%20Costa%20Acabei%20de%20Terminar" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Acabei de Terminar</a>
+                <a href="https://open.spotify.com/search/Heitor%20Costa%20Arrasada" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Arrasada</a>
+                <a href="https://open.spotify.com/search/Heitor%20Costa%20Mala%20dos%20Porta%20Malas" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Mala dos Porta Malas</a>
+                <a href="https://www.youtube.com/results?search_query=Heitor+Costa+Eu+Sou+o+Assunto+Nadson" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Eu Sou o Assunto</a>
+                <a href="https://www.youtube.com/results?search_query=Heitor+Costa+Na+Hora+da+Raiva" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Na Hora da Raiva</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DEVINHO NOVAES ── -->
+      <div class="artist-block" style="--artist-color:#fb923c">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/devinho-novaes.jpg') }}" alt="Devinho Novaes" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🎵 Arrocha · Sofrência</div>
+            <h2 class="artist-name">Devinho Novaes</h2>
+            <p class="artist-origin">📍 Aracaju, Sergipe · "O Boyzinho"</p>
+            <div class="artist-bio">
+              <p><strong>Devinho Novaes</strong>, o "Boyzinho", começou aos 9 anos com um cavaquinho ganho em sorteio de rádio, incentivado pela avó Dona Lourdes — compositora de vários de seus maiores sucessos. Em 2017, ao se apresentar na Festa de São Pedro em Capela-SE, seu nome começou a se espalhar por todo o estado.</p>
+              <p><strong>"Alô Dono do Bar"</strong> com Wesley Safadão superou 3 milhões de acessos em uma semana, com jogadores como Roberto Firmino e Hulk compartilhando vídeos ouvindo a música. Gravou ao lado de <strong>Marília Mendonça, Gusttavo Lima e Gustavo Mioto</strong>. É o artista sergipano com mais seguidores no Instagram, acumulando mais de <strong>180 milhões de plays</strong> no Sua Música.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Devinho%20Novaes" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Devinho+Novaes+oficial" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Devinho%20Novaes%20Alo%20Dono%20do%20Bar" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Alô Dono do Bar</a>
+                <a href="https://open.spotify.com/search/Devinho%20Novaes%20Coracao%20Blindado" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Coração Blindado</a>
+                <a href="https://open.spotify.com/search/Devinho%20Novaes%20Como%20a%20Culpa%20e%20Minha" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Como a Culpa é Minha</a>
+                <a href="https://open.spotify.com/search/Devinho%20Novaes%20Ana" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Ana</a>
+                <a href="https://www.youtube.com/results?search_query=Devinho+Novaes+Sócio+Unha+Pintada" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Sócio (c/ Unha Pintada)</a>
+                <a href="https://www.youtube.com/results?search_query=Devinho+Novaes+A+Gringa+Pirou" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> A Gringa Pirou</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── MIKAEL SANTOS ── -->
+      <div class="artist-block reverse" style="--artist-color:#a78bfa">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/mikael-santos.jpg') }}" alt="Mikael Santos" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🎙️ Arrocha · Brega</div>
+            <h2 class="artist-name">Mikael Santos</h2>
+            <p class="artist-origin">📍 Itabaiana, Sergipe · 23 anos</p>
+            <div class="artist-bio">
+              <p><strong>Mikael Santos</strong> nasceu em Itabaiana (SE), em uma família simples, e começou cantando na escola. Passou por empregos comuns antes de se dedicar integralmente à música, acreditando no arrocha como sua vocação. Seu estilo mistura brega, arrocha e pop nordestino com muita naturalidade.</p>
+              <p>Com mais de <strong>700 mil ouvintes mensais no Spotify</strong> e 20 milhões de plays no Sua Música, é um dos nomes mais quentes da nova geração. "Não Era Você" o levou ao <strong>Carnaval de Salvador</strong>. O EP <em>MS in Brega Seu Juão</em> dominou paredões em Alagoas, Pernambuco, Bahia e Sergipe.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Mikael%20Santos%20arrocha" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Mikael+Santos+cantor+oficial" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Mikael%20Santos%20Nao%20Era%20Voce" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Não Era Você</a>
+                <a href="https://open.spotify.com/search/Mikael%20Santos%20Ele%20Quer%20Ser%20Eu" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Ele Quer Ser Eu</a>
+                <a href="https://open.spotify.com/search/Mikael%20Santos%20MS%20in%20Brega" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> MS in Brega</a>
+                <a href="https://open.spotify.com/search/Mikael%20Santos%20So%20Voce" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Só Você</a>
+                <a href="https://www.youtube.com/results?search_query=Mikael+Santos+Iguinho+Lulinha" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Não Era Você ft. Iguinho</a>
+                <a href="https://www.youtube.com/results?search_query=Mikael+Santos+Brega+Seu+Juão" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> MS Brega Seu Juão</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── HEITOR SANTOS ── -->
+      <div class="artist-block" style="--artist-color:#f43f5e">
+        <div class="artist-hero">
+          <div class="artist-photo-wrap">
+            <img src="{{ url_for('static', filename='assets/heitor-santos.jpg') }}" alt="Heitor Santos" class="artist-photo" />
+            <div class="artist-photo-glow"></div>
+          </div>
+          <div class="artist-info">
+            <div class="artist-genre-tag">🎤 Arrocha · Sergipano</div>
+            <h2 class="artist-name">Heitor Santos</h2>
+            <p class="artist-origin">📍 Sergipe · "O Novinho"</p>
+            <div class="artist-bio">
+              <p><strong>Heitor Santos</strong>, o "Novinho", é a maior revelação do arrocha sergipano em 2026. Construiu sua trajetória com consistência e carisma, conquistando o público nas redes sociais de forma autêntica. Sua presença de palco marcante e sua voz característica o diferenciam na cena musical.</p>
+              <p>O destaque veio com <strong>"Sina de Ofélia"</strong> — versão em arrocha inspirada em Taylor Swift que entrou no <strong>Top 10 Viral Brasil</strong> e gerou crescimento de 700% no engajamento em uma semana. Com <strong>450 mil ouvintes mensais no Spotify</strong>, em abril de 2026 gravou o audiovisual <em>Sabor HS</em> em Fortaleza e assinou contrato com a Sua Música Digital.</p>
+            </div>
+            <div class="artist-links">
+              <a href="https://open.spotify.com/search/Heitor%20Santos%20cantor%20arrocha" target="_blank" rel="noopener" class="artist-link-btn sp">♫ Spotify</a>
+              <a href="https://www.youtube.com/results?search_query=Heitor+Santos+cantor+sergipano+arrocha" target="_blank" rel="noopener" class="artist-link-btn yt">▶ YouTube</a>
+            </div>
+            <div class="artist-songs">
+              <h4 class="songs-title">🎵 Ouça agora</h4>
+              <div class="songs-grid">
+                <a href="https://open.spotify.com/search/Heitor%20Santos%20Sina%20de%20Ofelia" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Sina de Ofélia</a>
+                <a href="https://open.spotify.com/search/Heitor%20Santos%20Sabor%20HS" target="_blank" rel="noopener" class="song-chip sp"><span class="song-play">♫</span> Sabor HS</a>
+                <a href="https://www.youtube.com/results?search_query=Heitor+Santos+cantor+sergipano+2026" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Mais Tocadas 2026</a>
+                <a href="https://www.youtube.com/results?search_query=Heitor+Santos+cantor+sergipano+hits" target="_blank" rel="noopener" class="song-chip yt"><span class="song-play">▶</span> Ver canal no YouTube</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FESTAS ═══════════════════════════════════════════════ -->
+  <section class="festas-section" id="festas">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">SÃO JOÃO 2026</span>
+        <h2 class="section-title glow">As Festas de Aracaju</h2>
+        <p class="section-desc">Programação completa — clique em ▶ YT ou ♫ SP para ouvir cada artista</p>
+      </div>
+
+      <div class="festas-tabs">
+        <button class="festa-tab active" data-tab="arraia">🎪 Arraiá do Povo</button>
+        <button class="festa-tab" data-tab="forro">🎶 Forró Caju</button>
+      </div>
+
+      <!-- ARRAIÁ DO POVO -->
+      <div class="festa-panel active" id="tab-arraia">
+        <div class="festa-header" style="--festa-color:#f59e0b">
+          <div class="festa-header-info">
+            <div class="festa-title-block">
+              <span class="festa-icon">🎪</span>
+              <div>
+                <h3 class="festa-name">Arraiá do Povo</h3>
+                <p class="festa-sub">O Maior Arraiá à Beira-Mar do Brasil</p>
+              </div>
+            </div>
+            <div class="festa-details">
+              <div class="festa-detail-item">
+                <span class="detail-icon">📅</span>
+                <div>
+                  <strong>29 de Maio a 28 de Junho de 2026</strong>
+                  <small>30 noites de shows</small>
+                </div>
+              </div>
+              <div class="festa-detail-item">
+                <span class="detail-icon">📍</span>
+                <div>
+                  <strong>Orla da Atalaia — Praça de Eventos</strong>
+                  <small>Palco Rogério + Palco 360° · Aracaju, SE</small>
+                  <a href="https://maps.google.com/?q=Orla+da+Atalaia+Praça+de+Eventos+Aracaju+Sergipe" target="_blank" rel="noopener" class="map-link">🗺️ Ver no Google Maps ↗</a>
+                </div>
+              </div>
+              <div class="festa-detail-item">
+                <span class="detail-icon">🎭</span>
+                <div>
+                  <strong>+50 atrações nacionais e regionais</strong>
+                  <small>Palco Rogério · Palco 360°</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="programacao-grid" id="arraia-prog"></div>
+      </div>
+
+      <!-- FORRÓ CAJU -->
+      <div class="festa-panel" id="tab-forro">
+        <div class="festa-header" style="--festa-color:#818cf8">
+          <div class="festa-header-info">
+            <div class="festa-title-block">
+              <span class="festa-icon">🎶</span>
+              <div>
+                <h3 class="festa-name">Forró Caju</h3>
+                <p class="festa-sub">São João no Coração Histórico de Aracaju</p>
+              </div>
+            </div>
+            <div class="festa-details">
+              <div class="festa-detail-item">
+                <span class="detail-icon">📅</span>
+                <div>
+                  <strong>20 a 28 de Junho de 2026</strong>
+                  <small>9 noites inesquecíveis</small>
+                </div>
+              </div>
+              <div class="festa-detail-item">
+                <span class="detail-icon">📍</span>
+                <div>
+                  <strong>Praça Hilton Lopes — Palco Luiz Gonzaga</strong>
+                  <small>Entre os Mercados Centrais · Centro Histórico de Aracaju</small>
+                  <a href="https://maps.google.com/?q=Praça+Hilton+Lopes+Mercados+Centrais+Centro+Aracaju+Sergipe" target="_blank" rel="noopener" class="map-link">🗺️ Ver no Google Maps ↗</a>
+                </div>
+              </div>
+              <div class="festa-detail-item">
+                <span class="detail-icon">🎤</span>
+                <div>
+                  <strong>Palco Luiz Gonzaga</strong>
+                  <small>Shows a partir das 19h · Entrada gratuita</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="programacao-grid" id="forro-prog"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-bandeirola">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">🪗 Memorial Forró Caju</div>
+          <p>Um projeto dedicado à cultura sergipana.<br/>Preservando a tradição por meio da tecnologia.</p>
+          <div class="footer-hashtags">
+            <span>#ForróCaju</span><span>#Sergipe</span><span>#SãoJoão2026</span>
+          </div>
+        </div>
+        <div class="footer-creator">
+          <h4>Criado por</h4>
+          <div class="creator-card">
+            <div class="creator-avatar">GG</div>
+            <div class="creator-info">
+              <strong>Gabriel Gomes Aragão De Faria</strong>
+              <span>Desenvolvedor Full Stack</span>
+              <span class="creator-love">Desenvolvido com ❤️ e orgulho sergipano 🪗</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-dates">
+          <h4>São João 2026</h4>
+          <div class="footer-date-box">
+            <span class="date-num">29/05</span>
+            <span class="date-label">Arraiá do Povo começa</span>
+          </div>
+          <div class="footer-date-box" style="margin-top:8px">
+            <span class="date-num">20/06</span>
+            <span class="date-label">Forró Caju começa</span>
+          </div>
+          <p class="footer-slogan">Capital do País do Forró 🔥</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <strong>Gabriel Gomes Aragão De Faria</strong> · Memorial Forró Caju · Aracaju, Sergipe</p>
+        <p class="footer-copy">#ForróCaju · #Sergipe · #SãoJoão2026 · #CapitalDoForró</p>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /main-content -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
