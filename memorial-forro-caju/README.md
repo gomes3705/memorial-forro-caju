@@ -1,7 +1,7 @@
 # 🪗 Memorial Forró Caju
-### *Capital do País do Forró · HackAiá da Capsulana*
+### *Capital do País do Forró ·*
 
-Aplicação web celebrando a cultura sergipana, desenvolvida para o **HackAiá da Capsulana** — hackathon de música, tecnologia e cultura junina de Aracaju, SE.
+Aplicação web celebrando a cultura sergipana, desenvolvida para o **Arraiá do Povo e o Forró Caju** —  Cultura junina de Aracaju, SE.
 
 ---
 
@@ -19,8 +19,8 @@ memorial-forro-caju/
     │   └── style.css             ← Estilos + animações
     ├── js/
     │   └── script.js             ← Lógica JS (áudio, canvas, tilt)
-    └── assets/                   ← 📂 COLOQUE SEUS ARQUIVOS AQUI
-        ├── sanfona.mp3           ← Áudio da sanfona (veja dica abaixo)
+    └── assets/                 
+        ├── sanfona.mp3           ← Áudio da sanfona
         ├── fogueira.mp4          ← Vídeo da fogueira em loop
         ├── mestrinho.jpg         ← Foto do artista
         ├── calcinha-preta.jpg
@@ -51,57 +51,7 @@ python app.py
 # http://localhost:5000
 ```
 
----
 
-## 🔊 Como adicionar o áudio da sanfona
-
-1. Acesse a **Biblioteca de Áudio do YouTube**: https://studio.youtube.com/channel/UC/music
-2. Pesquise por: `baião sanfona`, `forró instrumental` ou `xote nordestino`
-3. Baixe um arquivo **royalty-free** em `.mp3`
-4. Salve como `static/assets/sanfona.mp3`
-5. No `index.html`, descomente a linha:
-   ```html
-   <source src="{{ url_for('static', filename='assets/sanfona.mp3') }}" type="audio/mpeg" />
-   ```
-
----
-
-## 🔥 Como adicionar o vídeo de fogueira
-
-**Opção A — Vídeo MP4 (recomendado):**
-1. Baixe um vídeo de fogueira gratuito em: https://pixabay.com/videos/search/campfire/
-2. Salve como `static/assets/fogueira.mp4`
-3. No `index.html`, descomente:
-   ```html
-   <source src="{{ url_for('static', filename='assets/fogueira.mp4') }}" type="video/mp4" />
-   ```
-
-**Opção B — GIF:**  
-Substitua a tag `<video>` por `<img src="...fogueira.gif" />` dentro da `.fire-bg`.
-
----
-
-## 🖼️ Como adicionar fotos dos artistas
-
-Substitua cada `<img src="https://images.unsplash.com/...">` pelo caminho real:
-```html
-<img src="{{ url_for('static', filename='assets/mestrinho.jpg') }}" alt="Mestrinho" />
-```
-
----
-
-## ☁️ Deploy no Render (gratuito)
-
-1. Faça push do projeto para um repositório GitHub
-2. Acesse https://render.com → **New Web Service**
-3. Conecte o repositório
-4. Configure:
-   - **Build Command:** `pip install -r requirements.txt`
-   - **Start Command:** `gunicorn app:app`
-   - **Environment:** Python 3
-5. Clique em **Deploy** — sua URL estará pronta em minutos!
-
----
 
 ## ✨ Funcionalidades
 
@@ -130,8 +80,8 @@ Substitua cada `<img src="https://images.unsplash.com/...">` pelo caminho real:
 
 ## 🤝 Créditos
 
-Desenvolvido com ❤️ para o **HackAiá da Capsulana**  
-Realização: **Inovase** · **CajuHub** · Prefeitura de Aracaju  
-Evento: 22 e 23 de Maio · Local: CajuHub, Aracaju, SE
+Desenvolvido por **Gabriel Gomes A. De Faria** com ❤️ para o **Arraiá do povo e o Forró caju**  
 
-`#ForróCaju` `#HackAiá` `#CajuHub` `#Inovase` `#Aracaju`
+· Local: Aracaju, SE
+
+`#ForróCaju`   `#Aracaju` `#ArraiáDoPovo`
